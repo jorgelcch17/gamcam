@@ -21,8 +21,15 @@
     <body class="font-sans antialiased">
         <x-jet-banner />
 
-        <div class="min-h-screen bg-gray-100">
-            <x-navigation></x-navigation>
+        <div class="relative min-h-screen bg-gray-100">
+
+            {{-- verificando si me encuentro en la ruta home --}}
+            @if (request()->is('/'))
+                <x-navigation bgopacity="25"></x-navigation>    
+            @else
+                <x-navigation></x-navigation>
+            @endif
+
 
             <!-- Page Heading -->
             @if (isset($header))

@@ -1,5 +1,8 @@
 <?php
 
+use App\Http\Controllers\CamiriWikiController;
+use App\Http\Controllers\CategoryServiceController;
+use App\Http\Controllers\TourismPlace;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -16,6 +19,16 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('inicio');
 });
+
+Route::resource('/info-camiri', CamiriWikiController::class)->names('info-camiri');
+
+Route::resource('/categorias-servicios', CategoryServiceController::class)->names('categorias-servicios');
+
+Route::resource('/Tags', TagController::class)->names('Tags');
+
+Route::resource('/categorias-turismo', CategoryTourismController::class)->names('categorias-turismo');
+
+Route::resource('/atractivos-turisticos', TourismPlace::class)->names('atractivos-turisticos');
 
 Route::middleware([
     'auth:sanctum',
